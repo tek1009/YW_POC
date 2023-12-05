@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\YW.HandoverMgmt.Api.props" />
+</Project>
