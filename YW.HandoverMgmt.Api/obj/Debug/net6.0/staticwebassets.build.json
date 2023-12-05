@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "5bepDMo7fqGwpvF4GoLKephdL53pc9LcFwtNF7fOsSM=",
+  "Source": "YW.HandoverMgmt.Api",
+  "BasePath": "_content/YW.HandoverMgmt.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
