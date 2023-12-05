@@ -37,5 +37,6 @@ namespace YW.HandoverMgmt.Api.Model.DTO
         public string? UpdatedOn { get; set; } = string.Empty;
         public string? UpdatedBy { get; set; } = string.Empty;
         public string? IsActive { get; set; } = string.Empty;
+        public string? Status { get; set; } = "";
     }
 }

@@ -34,6 +34,7 @@ namespace YW.HandoverMgmt.Api.Controllers
                 Equipments=certificateReq.Equipments,
                 Access_Arrangements=certificateReq.Access_Arrangements,
                 Commence_Date=certificateReq.Commence_Date,
+                Completion_Date=certificateReq.Completion_Date,
                 Work_Description=certificateReq.Work_Description,
                 IsInspectionUnderTaken=certificateReq.IsInspectionUnderTaken,
                 IsStartOnSiteLetter=certificateReq.IsStartOnSiteLetter,
@@ -52,7 +53,8 @@ namespace YW.HandoverMgmt.Api.Controllers
                 CreatedOn=DateTime.UtcNow.ToString(),
                 CreatedBy=certificateReq.CreatedBy,
                 UpdatedOn=certificateReq.UpdatedOn,
-                UpdatedBy=certificateReq.UpdatedBy
+                UpdatedBy=certificateReq.UpdatedBy,
+                Status="New"
             };
             cert.Id=Guid.NewGuid().ToString();
             await _dbContext.AddAsync(cert);

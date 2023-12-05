@@ -31,5 +31,6 @@
         public string? UpdatedOn { get; set; }
         public string? UpdatedBy { get; set; }
         public string? IsActive { get; set; }
+        public string? Status { get; set; } = "";
     }
 }

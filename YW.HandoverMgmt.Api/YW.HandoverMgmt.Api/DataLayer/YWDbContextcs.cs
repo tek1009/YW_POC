@@ -11,5 +11,7 @@ namespace YW.HandoverMgmt.Api.DataLayer
         }
 
         public DbSet<CertificateDto> Certificates { get; set; }
+        public DbSet<SiteRes> Sites { get; set; }
+        public DbSet<UserRes> Contacts { get; set; }
     }
 }
