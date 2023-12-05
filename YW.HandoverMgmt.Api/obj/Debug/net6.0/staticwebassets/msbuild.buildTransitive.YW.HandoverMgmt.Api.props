@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\YW.HandoverMgmt.Api.props" />
-</Project>
