@@ -100,5 +100,67 @@ namespace YW.HandoverMgmt.Api.Controllers
             }
             return NotFound("Certificate is not available..Please provide the correct Certificate!");
         }
+
+        [HttpGet("certificates")]
+        public async Task<List<CertificateDto>> GetAllCertificates()
+        {
+            List<CertificateDto> certificates = new List<CertificateDto>();
+            var resultCerts = _dbContext.Certificates.Select(x => new
+            {
+                x.Id,
+                x.Type,
+                x.Mode,
+                x.Site_Location,
+                x.Site,
+                x.Contractor,
+                x.Contractor_Representative,
+                x.Commence_Date,
+                x.Completion_Date,
+                x.Authorized_Person,
+                x.Work_Description,
+                x.Access_Arrangements,
+                x.CreatedOn,
+                x.CreatedBy,
+                x.Equipments,
+                x.Handback_Date,x.Handback_Name,x.Takeback_Name,x.Handback_Comment,
+                x.Handover_Comment, x.Handover_Name,x.Handover_Reference,x.Takeover_Name,x.Handover_Date,
+                x.IsHealthNSaftey,
+                x.IsInspectionUnderTaken,
+                x.IsStartOnSiteLetter,
+                x.IsActive, x.Status
+            }).Where(x => x.IsActive=="True" || x.IsActive== "true").OrderByDescending(x=>x.CreatedOn);
+            foreach (var cert in resultCerts) 
+            {
+                CertificateDto req = new CertificateDto();
+                req.Id = cert.Id;
+                req.Mode = cert.Mode;
+                req.Type = cert.Type;
+                req.Site = cert.Site;
+                req.Contractor = cert.Contractor;
+                req.Work_Description=cert.Work_Description;
+                req.Authorized_Person = cert.Authorized_Person;
+                req.Access_Arrangements = cert.Access_Arrangements;
+                req.Commence_Date = cert.Commence_Date;
+                req.Completion_Date = cert.Completion_Date;
+                req.CreatedOn = cert.CreatedOn;
+                req.CreatedBy = cert.CreatedBy;
+                req.Handover_Name = cert.Handover_Name;
+                req.Handover_Reference = cert.Handover_Reference;
+                req.Handover_Comment=cert.Handover_Comment;
+                req.Handback_Name = cert.Handback_Name;
+                req.Handback_Date=cert.Handback_Date;
+                req.Handover_Date=cert.Handover_Date;
+                req.Handback_Comment=cert.Handback_Comment;
+                req.Equipments = cert.Equipments;
+                req.IsHealthNSaftey = cert.IsHealthNSaftey;
+                req.IsInspectionUnderTaken = cert.IsInspectionUnderTaken;
+                req.IsStartOnSiteLetter= cert.IsStartOnSiteLetter;
+                req.IsActive = cert.IsActive;
+                req.Status = cert.Status;
+                certificates.Add(req);
+            }
+            return certificates;
+           
+        }
     }
 }
