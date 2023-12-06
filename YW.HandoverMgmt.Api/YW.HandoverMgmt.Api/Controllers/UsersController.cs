@@ -44,5 +44,23 @@ namespace YW.HandoverMgmt.Api.Controllers
             }
             return null;
         }
+        [HttpGet("contacts/{role}")]
+        public async Task<List<UserRes>> GetUserByRole(string role)
+        {
+            List<UserRes> users = new List<UserRes>();
+            var result = _dbContext.Contacts.Select(x=>new {x.Id,x.Name,x.Role,x.Company,x.MobileNumber})
+                .Where(x=>x.Role==role);
+            foreach (var user in result)
+            {
+                UserRes userRes = new UserRes();
+                userRes.Id=user.Id;
+                userRes.Name = user.Name;
+                userRes.MobileNumber = user.MobileNumber;
+                userRes.Role = user.Role;
+                userRes.Company = user.Company;
+                users.Add(userRes);
+            }
+            return users;
+        }
     }
 }
