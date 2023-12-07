@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/YW.HandoverMgmt.Api/.vs
+/.gitignore
+/YW.HandoverMgmt.Api/YW.HandoverMgmt.Api/obj/Debug/net8.0
+/YW.HandoverMgmt.Api/YW.HandoverMgmt.Api/obj/Release/net8.0
