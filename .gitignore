@@ -3,6 +3,8 @@
 ################################################################################
 
 /.vs
+*.vsidx
+*.suo
 /YW.HandoverMgmt.Api/.vs
 /.gitignore
 /YW.HandoverMgmt.Api/YW.HandoverMgmt.Api/obj/Debug/net8.0
