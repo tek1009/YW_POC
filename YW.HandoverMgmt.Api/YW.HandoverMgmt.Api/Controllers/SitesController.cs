@@ -43,5 +43,20 @@ namespace YW.HandoverMgmt.Api.Controllers
             return null;
              
         }
+        [HttpGet("equipments")]
+        public async Task<List<EquipmentDto>>? GetAllEquipments()
+        {
+            List<EquipmentDto> listOfEquips = new List<EquipmentDto>();
+            var result=_dbContext.Equipments.Select(x=> new {x.Id,x.Name,x.Description});
+            foreach (var item in result)
+            {
+                EquipmentDto equipment = new EquipmentDto();
+                equipment.Id = item.Id;
+                equipment.Name = item.Name;
+                equipment.Description = item.Description;
+                listOfEquips.Add(equipment);
+            }
+            return listOfEquips;
+        }
     }
 }
